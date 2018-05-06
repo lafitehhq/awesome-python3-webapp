@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = 'Michael Liao'
+__author__ = 'VitoWong'
 
 '''
 Deployment toolkit.
@@ -12,12 +12,12 @@ import os, re
 from datetime import datetime
 from fabric.api import *
 
-env.user = 'michael'
-env.sudo_user = 'root'
-env.hosts = ['192.168.0.3']
+env.user = 'root'
+env.sudo_user = 'lafitehhq'
+env.hosts = ['127.0.0.1']
 
-db_user = 'www-data'
-db_password = 'www-data'
+db_user = 'root'
+db_password = 'start'
 
 _TAR_FILE = 'dist-awesome.tar.gz'
 
@@ -94,7 +94,7 @@ def rollback():
         print ('Found current symbol link points to: %s\n' % current)
         try:
             index = files.index(current)
-        except ValueError, e:
+        except ValueError as e:
             print ('ERROR: symbol link is invalid.')
             return
         if len(files) == index + 1:
@@ -133,7 +133,7 @@ def restore2local():
     files = [f for f in fs if f.startswith('backup-') and f.endswith('.sql.tar.gz')]
     files.sort(cmp=lambda s1, s2: 1 if s1 < s2 else -1)
     if len(files)==0:
-        print 'No backup files found.'
+        print('No backup files found.')
         return
     print ('Found %s backup files:' % len(files))
     print ('==================================================')

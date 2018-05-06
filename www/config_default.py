@@ -5,7 +5,7 @@
 Default configurations.
 '''
 
-__author__ = 'Michael Liao'
+__author__ = 'VitoWong'
 
 configs = {
     'debug': True,

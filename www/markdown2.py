@@ -2294,7 +2294,6 @@ def _xml_encode_email_char_at_random(ch):
         return '&#%s;' % ord(ch)
 
 
-
 #---- mainline
 
 class _NoReflowFormatter(optparse.IndentedHelpFormatter):
